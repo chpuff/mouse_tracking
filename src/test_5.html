@@ -1,0 +1,140 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Тест</title>
+</head>
+
+<body>
+
+<p>
+	<button id="leftBut" onclick="left_button()">Левая</button>
+	<font color="white">_________________________________________________________________</font>
+	<button id="rightBut" onclick="right_button()">Правая</button>
+</p>
+
+
+<p>
+	<img src="../figures/triangle_triangle_4.jpg"
+		 alt=""
+		 width="200"
+		 height="190"
+		 align=""
+	>
+	<font color="white">____________________________</font>
+	<img src="../figures/triangle_cub_4.jpg"
+		 alt=""
+		 width="200"
+		 height="190"
+		 align=""
+	>
+</p>
+<br/>
+<p>
+	<font color="white">___________________________</font>
+	<img src="../figures/cub_cub_4.jpg"
+		 alt=""
+		 width="200"
+		 height="190"
+		 align=""
+	>
+</p>
+
+<form action="nextpage" method="post">
+	<p>
+		<font color="white">_________________________________</font>
+		<input type="submit" value="Продолжить" />
+	</p>
+</form>
+
+
+<span id="xy"></span>
+
+<!--
+Отправка на сервер координат курсора
+-->
+<script type="text/javascript">
+function init() {
+    if (document.layers) document.captureEvents(Event.MOUSEMOVE);
+    document.onmousemove = mousemove;
+}
+
+async function mousemove(event) {
+    var mouse_x = mouse_y = 0;
+    if (document.attachEvent != null) {
+        mouse_x = window.event.clientX;
+        mouse_y = window.event.clientY;
+    } else if (!document.attachEvent && document.addEventListener) {
+        mouse_x = event.clientX;
+        mouse_y = event.clientY;
+    }
+	//вывод на странице
+<!--    status = "x = " + mouse_x + ", y = " + mouse_y;-->
+<!--    document.getElementById('xy').innerHTML = "x = " + mouse_x + ", y = " + mouse_y;-->
+
+    //отправляем на сервер
+	const response = await fetch("/mouseposition", {
+			method: "POST",
+			headers: { "Accept": "application/json", "Content-Type": "application/json" },
+			body: JSON.stringify({
+				x: mouse_x,
+				y: mouse_y
+			})
+		});
+	if (!(response.ok === true)) {
+		const error = await response.json();
+		console.log(error.message);
+	}
+}
+
+init()
+</script>
+
+<!--
+Отправка на сервер уведомления о нажатии кнопок:
+Левая или Правая
+-->
+<script>
+// при нажатии кнопки Левая
+async function left_button() {
+	// отправляем запрос
+	const response = await fetch("/leftOrRightBut", {
+			method: "POST",
+			headers: { "Accept": "application/json", "Content-Type": "application/json" },
+			body: JSON.stringify({
+				message: "left"
+			})
+		});
+	if (!(response.ok === true)) {
+	const error = await response.json();
+	console.log(error.message);
+	}
+}
+
+// при нажатии кнопки Правая
+async function right_button() {
+	// отправляем запрос
+	const response = await fetch("/leftOrRightBut", {
+			method: "POST",
+			headers: { "Accept": "application/json", "Content-Type": "application/json" },
+			body: JSON.stringify({
+				message: "right"
+			})
+		});
+	if (!(response.ok === true)) {
+	const error = await response.json();
+	console.log(error.message);
+	}
+}
+</script>
+
+<!--
+переводит веб-приложение на следующую страницу, если она была хоть раз открыта.
+использовано для предотвращения возврата на текущую страницу со следующей
+при нажатии кнопки браузера Назад
+-->
+<script language="JavaScript">
+javascript:window.history.forward(1);
+</script>
+
+</body>
+</html> 

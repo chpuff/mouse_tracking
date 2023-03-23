@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <form action="to_test" method="post">
+        <p>
+            <h3>
+            Какие эмоции у Вас вызвало просмотренное изображение?
+            <br><br>
+            1.Положительные<br>
+            2.Скорее положительные<br>
+            3.Нейтральные<br>
+            4.Скорее отрицательные<br>
+            5.Отрицательные:<br>
+            <br>
+            Введите в поле ответа цифру от 1 до 5<br>
+            </h3>
+            <input name="answer" />
+        </p>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <p>
+		<font color="white">_________________________________</font>
+		<input type="submit" value="Продолжить" />
+	    </p>
+    </form>
+
+<!--
+переводит веб-приложение на следующую страницу, если она была хоть раз открыта.
+использовано для предотвращения возврата на текущую страницу со следующей
+при нажатии кнопки браузера Назад
+-->
+<script language="JavaScript">
+javascript:window.history.forward(1);
+</script>
+
+</body>
+</html>
