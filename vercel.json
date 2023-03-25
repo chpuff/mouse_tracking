@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "devCommand": "uvicorn main:app --host 0.0.0.0 --port 3000",
   "builds": [
     {
@@ -11,5 +12,12 @@
       "src": "/(.*)",
       "dest": "api/index.py"
     }
+=======
+  "builds": [
+    {"src": "/server.py", "use": "@now/python"}
+  ],
+  "routes": [
+    {"src": "/(.*)", "dest": "server.py"}
+>>>>>>> e2c90872b1643e1d535d95df5c70644c6160d441
   ]
 }
