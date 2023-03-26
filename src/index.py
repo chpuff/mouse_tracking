@@ -7,8 +7,8 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+async def root(response: RedirectResponse):
+    return RedirectResponse("/welcome_page")
 
 
 @app.get("/hello/{name}")
