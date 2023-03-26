@@ -1,3 +1,5 @@
+# файл начинается с комментария
+
 from fastapi import FastAPI, Response
 from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
 
