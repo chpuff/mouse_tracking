@@ -34,16 +34,16 @@ def read_root():
     return HTMLResponse(content=html_content)
 
 
-# @app.get("/cookie")
-# def cookie_def(response: Response):
-#     num = str(cryptogen.randrange(10 ** 29, 10 ** 30))
-#     response.set_cookie(key="sessid", value=num)
-#     return {"message": "куки установлены"}
-#
-#
-# @app.get("/see_cookie")
-# def cookie_get(sessid: str | None = Cookie(default=None)):
-#     if sessid == None:
-#         return {"message": "Это ваш первый визит на сайт"}
-#     else:
-#         return {"message": f"Ваш последний визит: {sessid}"}
+@app.get("/cookie")
+def cookie_def(response: Response):
+    num = str(cryptogen.randrange(10 ** 29, 10 ** 30))
+    response.set_cookie(key="sessid", value=num)
+    return {"message": "куки установлены"}
+
+
+@app.get("/see_cookie")
+def cookie_get(sessid: str | None = Cookie(default=None)):
+    if sessid == None:
+        return {"message": "Это ваш первый визит на сайт"}
+    else:
+        return {"message": f"Ваш последний визит: {sessid}"}
