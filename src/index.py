@@ -16,7 +16,7 @@ async def say_hello(name: str):
 
 @app.get("/welcome_page")
 def welcome_page(response: RedirectResponse):
-    return FileResponse("welcome.html")
+    return FileResponse("src/welcome.html")
 
 
 @app.get("/text")
