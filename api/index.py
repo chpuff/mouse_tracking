@@ -1,1 +1,1 @@
-from src.index_test import app
+from src.index import app
