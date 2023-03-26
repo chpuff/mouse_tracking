@@ -1,8 +1,13 @@
 # файл начинается с комментария
 
-from fastapi import FastAPI, Response, Cookie
-from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
+from fastapi import FastAPI, Form, Body, Cookie, Path
+from fastapi.responses import Response, FileResponse, HTMLResponse, PlainTextResponse
+from fastapi.responses import RedirectResponse, JSONResponse
+from starlette import status
+from datetime import datetime
 from src.variables import journal, cryptogen, last_test_page_num
+import json
+import os
 
 app = FastAPI()
 
@@ -12,26 +17,47 @@ async def root(response: RedirectResponse):
     return RedirectResponse("/welcome_page")
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
-
+# главная страница - welcome страница
+# первая страница
 @app.get("/welcome_page")
 def welcome_page(response: RedirectResponse):
     return FileResponse("src/welcome.html")
 
 
-@app.get("/text")
-def root():
-    data = "Hello METANIT.COM"
-    return Response(content=data, media_type="text/plain")
+# вторая страница - опрос
+@app.get("/questionnaire")
+def questionnaire(response: RedirectResponse):
+    return FileResponse("src/form.html")
 
 
-@app.get("/html")
-def read_root():
-    html_content = "<h2>Hello everyone METANIT.COM!</h2>"
-    return HTMLResponse(content=html_content)
+# страница благодарности
+@app.get("/gratitude")
+def gratitude():
+    return FileResponse("src/gratitude.html")
+
+
+# страница с эмоциональным изображением
+# значение n определяется из пути запроса
+@app.get("/image/{n}", response_class=HTMLResponse)
+def image_page(n: int = Path()):
+    # журнал посещения не обновляется
+    return FileResponse("src/emotional_image_{}.html".format(n))
+
+
+# страница с опросом после страницы с эмоциональным изображением
+@app.get("/emotional_poll", response_class=HTMLResponse)
+def emotional_poll():
+    # журнал посещения не обновляется
+    return FileResponse("src/emotional_poll.html")
+
+
+# обработка нажатия кнопки Продолжить на первой странице
+@app.post("/welcome_page_next_button")
+def welcome_page_next_button():
+    return RedirectResponse("/questionnaire", status_code=status.HTTP_302_FOUND)
+
+
+
 
 
 # @app.get("/cookie")
