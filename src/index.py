@@ -5,16 +5,16 @@ from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
 
 app = FastAPI()
 
-# переменная для генерации криптостойких ключей
-cryptogen = SystemRandom()
-
-# актуальные данные посещения веб-приложения
-read_file = open("res/journal.json", "r")
-journal = json.load(read_file)
-read_file.close()
-
-# всего 30 тестовых страниц
-last_test_page_num = 30
+# # переменная для генерации криптостойких ключей
+# cryptogen = SystemRandom()
+#
+# # актуальные данные посещения веб-приложения
+# read_file = open("res/journal.json", "r")
+# journal = json.load(read_file)
+# read_file.close()
+#
+# # всего 30 тестовых страниц
+# last_test_page_num = 30
 
 @app.get("/")
 async def root(response: RedirectResponse):
