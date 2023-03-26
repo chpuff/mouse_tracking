@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.responses import RedirectResponse
+from fastapi import FastAPI, Response
+from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
 
 app = FastAPI()
 
