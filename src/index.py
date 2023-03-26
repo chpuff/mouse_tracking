@@ -25,8 +25,6 @@ read_file = open("res/journal.json", "r")
 journal = json.load(read_file)
 read_file.close()
 
-# тест 1 - это вторая по счёту страница, посещенная пользователем
-start_test_page = 3
 
 # всего 30 тестовых страниц
 last_test_page_num = 30
