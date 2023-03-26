@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI, Response
 from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
-# from src.variables import journal, cryptogen, last_test_page_num
+from src.variables import journal, cryptogen, last_test_page_num
 
 app = FastAPI()
 
