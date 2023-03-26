@@ -5,8 +5,6 @@ from fastapi.responses import RedirectResponse, FileResponse, HTMLResponse
 
 app = FastAPI()
 
-cryptogen = SystemRandom()
-last_test_page_num = 30
 
 @app.get("/")
 async def root(response: RedirectResponse):
