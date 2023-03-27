@@ -8,6 +8,7 @@ from datetime import datetime
 from src.variables import journal, cryptogen, last_test_page_num
 import json
 import os
+from google.cloud import storage
 
 app = FastAPI()
 
