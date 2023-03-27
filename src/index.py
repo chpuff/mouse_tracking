@@ -54,12 +54,10 @@ def emotional_poll():
 # обработка нажатия кнопки Продолжить на первой странице
 @app.post("/welcome_page_next_button")
 def welcome_page_next_button():
-    path = "res/test_dir"
-    if not os.path.isdir(path):
-        os.mkdir(path)
+    journal = {"hi":"for you"}
+    with open("res/journal.json", "w", encoding="utf-8") as write_file:
+        json.dump(journal, write_file, indent=4)
 
-    with open("res/test_dir/test_file.txt", "w", encoding="utf-8") as f:
-        f.write("test done")
 
     return RedirectResponse("/questionnaire", status_code=status.HTTP_302_FOUND)
 
