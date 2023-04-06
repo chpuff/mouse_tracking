@@ -25,7 +25,7 @@ welcome страница
 страница благодарности
 
 
-Порядок эмоциональных старниц:
+Порядок эмоциональных старниц 1:
 нейтральная - oasis_images/Acorns.jpg
 положительная - oasis_images/Birthday.jpg
 положительная - oasis_images/Cat.jpg
@@ -37,6 +37,29 @@ welcome страница
 отрицательная - oasis_images/Baby.jpg
 отрицательная - oasis_images/Fire.jpg
 
+Порядок эмоциональных старниц 2:
+нейтральная - oasis_images/Yarn 2.jpg
+положительная - oasis_images/Dog 21.jpg
+положительная - oasis_images/Happy pose 2.jpg
+положительная - oasis_images/Wedding 4.jpg
+положительная - oasis_images/Massage 1.jpg
+нейтральная - oasis_images/Roofing 2.jpg
+отрицательная - oasis_images/War 2.jpg
+отрицательная - oasis_images/Fire 2.jpg
+отрицательная - oasis_images/Scared face 4.jpg
+отрицательная - oasis_images/Cockroach 4.jpg
+
+Порядок эмоциональных старниц 3:
+нейтральная - oasis_images/Rocks 3.jpg
+положительная - oasis_images/Birthday 3.jpg
+положительная - oasis_images/Beach 5.jpg
+положительная - oasis_images/Dessert 5.jpg
+положительная - oasis_images/Present 1.jpg
+нейтральная - oasis_images/Fire hydrant 2.jpg
+отрицательная - oasis_images/Animal carcass 6.jpg
+отрицательная - oasis_images/Jail 2.jpg
+отрицательная - oasis_images/Dog attack 3.jpg
+отрицательная - oasis_images/Cockroach 1.jpg
 
 Опрос эмоций:
 вопрос: Какие эмоции у вас вызвало просмотренное изображение?
